@@ -9,15 +9,15 @@ import { LogLevel } from '../log-level.enum';
 })
 export class MouseTrackZoneComponent implements OnInit {
   // @Input() private logger: MySpecialLoggerService;
-  logLevel: LogLevel = LogLevel.TRACE;
-  logger: MySpecialLoggerService;
-
-  constructor() {
-    this.logger = new MySpecialLoggerService(this.logLevel);
-  }
+  // logLevel: LogLevel = LogLevel.TRACE;
+  // logger: MySpecialLoggerService;
 
   // constructor() {
+  //   this.logger = new MySpecialLoggerService(this.logLevel);
   // }
+
+  constructor(private logger: MySpecialLoggerService) {
+  }
 
   ngOnInit() {
   }
@@ -26,5 +26,6 @@ export class MouseTrackZoneComponent implements OnInit {
     this.logger.debug('click event occured');
     const pos = [$event.clientX, $event.clientY];
     this.logger.info(`x:${pos[0]} y:${pos[1]}`);
+    // console.log('captureMousePos called ##########################');
   }
 }

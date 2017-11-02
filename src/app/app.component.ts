@@ -10,11 +10,11 @@ import { LogLevel } from './log-level.enum';
 export class AppComponent {
   title = 'mpl-mouse-track-zone';
 
-  logger: MySpecialLoggerService;
+  // logger: MySpecialLoggerService;
 
-  constructor() {
-    this.logger = new MySpecialLoggerService(LogLevel.TRACE);
-    this.testLoggerLevel();
+  constructor(private logger: MySpecialLoggerService) {
+    // this.logger = new MySpecialLoggerService(LogLevel.TRACE);
+    // this.testLoggerLevel();
   }
 
   testLoggerLevel() {
@@ -48,7 +48,5 @@ export class AppComponent {
     this.logger.info('test logging .... in info');
     this.logger.warn('test logging .... in warn');
     this.logger.error('test logging .... in error');
-
-
   }
 }

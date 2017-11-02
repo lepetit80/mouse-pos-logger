@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MouseTrackZoneComponent } from './mouse-track-zone/mouse-track-zone.component';
+import { MySpecialLoggerService } from './my-special-logger.service';
+import { LogLevel } from './log-level.enum';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +15,7 @@ import { MouseTrackZoneComponent } from './mouse-track-zone/mouse-track-zone.com
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [MySpecialLoggerService, {provide: 'logLevel', useValue: LogLevel.DEBUG}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

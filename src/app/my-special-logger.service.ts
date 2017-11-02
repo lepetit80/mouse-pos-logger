@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { LogLevel } from './log-level.enum';
 import * as format from 'date-fns/format';
 
@@ -9,9 +9,13 @@ export class MySpecialLoggerService {
   private readonly MAX_HISTORY_CNT: number = 100;
   private readonly TIME_FORMATTER: string = 'YYYY-MM-DD HH:mm:ss.SSS';
 
-  constructor(logLevel: LogLevel) {
+  constructor(@Inject('logLevel') logLevel: LogLevel) {
     this.logLevel = logLevel;
   }
+
+  // constructor(logLevel: LogLevel) {
+  //   this.logLevel = logLevel;
+  // }
 
   trace(msg: string) { this.log(LogLevel.TRACE, msg); }
   debug(msg: string) { this.log(LogLevel.DEBUG, msg); }
@@ -31,7 +35,6 @@ export class MySpecialLoggerService {
     if (this.logs.length === this.MAX_HISTORY_CNT) {
       this.logs.shift();
     }
-
     this.logs.push(logMsg);
   }
 
