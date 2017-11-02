@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MouseTrackZoneComponent } from './mouse-track-zone/mouse-track-zone.component';
 import { MySpecialLoggerService } from './my-special-logger.service';
 import { LogLevel } from './log-level.enum';
-
+import { LOG_LEVEL_TOKEN } from './app.tokens';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { LogLevel } from './log-level.enum';
   imports: [
     BrowserModule
   ],
-  providers: [MySpecialLoggerService, {provide: 'logLevel', useValue: LogLevel.DEBUG}],
+  providers: [MySpecialLoggerService, { provide: LOG_LEVEL_TOKEN, useValue: LogLevel.DEBUG}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
