@@ -19,7 +19,7 @@ import { LOG_LEVEL_TOKEN } from './app.tokens';
   providers: [
     MySpecialLoggerService,
     AnotherLoggerService,
-    { provide: LOG_LEVEL_TOKEN, useValue: LogLevel.DEBUG}
+    {provide: LOG_LEVEL_TOKEN, useValue: LogLevel.DEBUG}
   ],
   bootstrap: [AppComponent]
 })
