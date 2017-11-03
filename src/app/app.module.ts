@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MouseTrackZoneComponent } from './mouse-track-zone/mouse-track-zone.component';
 import { MySpecialLoggerService } from './my-special-logger.service';
+import { AnotherLoggerService } from './another-logger.service';
 import { LogLevel } from './log-level.enum';
 import { LOG_LEVEL_TOKEN } from './app.tokens';
 
@@ -15,7 +16,11 @@ import { LOG_LEVEL_TOKEN } from './app.tokens';
   imports: [
     BrowserModule
   ],
-  providers: [MySpecialLoggerService, { provide: LOG_LEVEL_TOKEN, useValue: LogLevel.DEBUG}],
+  providers: [
+    MySpecialLoggerService,
+    AnotherLoggerService,
+    { provide: LOG_LEVEL_TOKEN, useValue: LogLevel.DEBUG}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
