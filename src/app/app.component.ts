@@ -8,7 +8,7 @@ import { LogLevel } from './log-level.enum';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mpl-mouse-track-zone';
+  title = 'mpl';
 
   // logger: MySpecialLoggerService;
 
